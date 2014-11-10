@@ -166,13 +166,15 @@ int MaxSubSequenceSum_C(int A[], int N)
 */
 int MaxSubSequenceSum_D(int A[], int N)
 {
-  int MaxSum, i;
-  MaxSum = 0;
+  int ThisSum, MaxSum, i;
+  ThisSum = MaxSum = 0;
   for(i = 0; i < N; i++)
     {
-      MaxSum += A[i];
-      if(MaxSum < 0)
-	MaxSum = 0;
+      ThisSum += A[i];
+      if(ThisSum > MaxSum)
+	MaxSum = ThisSum;
+      else if(ThisSum < 0)
+	ThisSum = 0;
     }
   return MaxSum;
 }
