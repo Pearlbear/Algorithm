@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 /*
-  求最大子序列和
+  求最大子序列和（数据结构与算法分析2.4.3）
 */
 main(){
   //生成长度为100的随机数列
@@ -14,7 +14,7 @@ main(){
   }
   printf("\n");
   
-  //用于统计时间
+  //算法一时间
   int time;
   time = clock();
   
@@ -22,24 +22,35 @@ main(){
   sum1 = MaxSubSequenceSum_A(a, 100);
   printf("Sum=%d\n", sum1);
 
-  //用于统计时间
   time = clock() - time;
   printf("It took %ds ticks (%f seconds).\n", time, ((double)time)/CLOCKS_PER_SEC);
   
+  //算法二时间
   time = clock();
-  
+   
   int sum2;
   sum2 = MaxSubSequenceSum_B(a, 100);
   printf("Sum=%d\n", sum2);
 
   time = clock() - time;
   printf("It took %ds ticks (%f seconds).\n", time, ((double)time)/CLOCKS_PER_SEC);
-
+  
+  //算法三时间
   time = clock();
 
   int sum3;
   sum3 = MaxSubSequenceSum_C(a, 100);
   printf("Sum=%d\n", sum3);
+
+  time = clock() - time;
+  printf("It took %ds ticks (%f seconds).\n", time, ((double)time)/CLOCKS_PER_SEC);
+
+  //算法四时间
+  time = clock();
+  
+  int sum4;
+  sum4 = MaxSubSequenceSum_D(a, 100);
+  printf("Sum=%d\n", sum4);
 
   time = clock() - time;
   printf("It took %ds ticks (%f seconds).\n", time, ((double)time)/CLOCKS_PER_SEC);
@@ -120,7 +131,7 @@ int MaxSum(int A[], int Left, int Right)
   LeftBorderSum = 0;
   for(i = Middle; i >= Left; i--)
     {
-      LeftBorderSum = LeftBorderSum + A[i];
+      LeftBorderSum += A[i];
       if(LeftBorderSum > MaxLeftBorderSum)
 	{
 	  MaxLeftBorderSum = LeftBorderSum;
@@ -131,7 +142,7 @@ int MaxSum(int A[], int Left, int Right)
   RightBorderSum = 0;
   for(i = Middle + 1; i <= Right; i++)
     {
-      RightBorderSum = RightBorderSum + A[i];
+      RightBorderSum += A[i];
       if(RightBorderSum > MaxRightBorderSum)
 	{
 	  MaxRightBorderSum = RightBorderSum;
@@ -146,4 +157,22 @@ int MaxSum(int A[], int Left, int Right)
 int MaxSubSequenceSum_C(int A[], int N)
 {
   return MaxSum(A, 0, N-1);
+}
+
+/*
+  算法四：
+  线性算法
+  算法时间复杂度：O(N)
+*/
+int MaxSubSequenceSum_D(int A[], int N)
+{
+  int MaxSum, i;
+  MaxSum = 0;
+  for(i = 0; i < N; i++)
+    {
+      MaxSum += A[i];
+      if(MaxSum < 0)
+	MaxSum = 0;
+    }
+  return MaxSum;
 }
