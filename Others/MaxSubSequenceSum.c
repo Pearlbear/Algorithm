@@ -1,9 +1,10 @@
-#include <stdio.h>
-#include <time.h>
 /*
   求最大子序列和（数据结构与算法分析2.4.3）
 */
-main(){
+#include <stdio.h>
+#include <time.h>
+
+int main(){
   //生成长度为100的随机数列
   int a[100];
   int i; 
