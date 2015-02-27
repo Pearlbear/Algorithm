@@ -4,7 +4,8 @@
 #include <stdio.h>
 #include <time.h>
 
-int main(){
+int main()
+{
   //生成长度为100的随机数列
   int a[100];
   int i; 
