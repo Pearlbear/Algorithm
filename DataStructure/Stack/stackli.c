@@ -1,3 +1,6 @@
+/*
+  栈的链表实现
+ */
 struct Node
 {
   ElementType Element;
