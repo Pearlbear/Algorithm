@@ -71,11 +71,29 @@ void Insert(ElementType X, List L, Position P)
 void DeleteList(List L)
 {
   Position P, TmpCell;
-  P = L;
+  P = L;/*书上这个位置写的是P = L->Next;     L->Next = NULL*/
   while(P!=Null)
     {
       TmpCell = P->Next;
       free(P);
       P = TmpCell;
+    }
+}
+/*
+  练习3.1 打印所有元素
+ */
+void PrintList(List L)
+{
+  if(L == NULL || L->Next == NULL)
+    printf("空表");
+  else
+    {
+      Position P;
+      P = L->Next;
+      while(P != NULL)
+	{
+	  printf("%d ",P->ElementType);
+	  P = P->Next;
+	}
     }
 }
