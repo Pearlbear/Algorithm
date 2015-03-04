@@ -14,6 +14,16 @@ static int Height(AvlTree T)
     return T->Height;
 }
 
+/*
+  Height另一种方式，通用于树，不限于AvlTree
+ */
+int Height(Tree T)
+{
+  if(T == NULL)
+    return -1;
+  else
+    return Max(Height(T->Left), Height(T->Right)) + 1;
+}
 AvlTree Insert( ElementType X, AvlTree T )
 {
   if(T == NULL)
