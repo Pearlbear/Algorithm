@@ -12,5 +12,6 @@ Position FindMax( SearchTree T );
 SearchTree Insert( ElementType X, SearchTree T );
 SearchTree Delete( ElementType X, SearchTree T );
 ElementType Retrieve( Position P );
+void PrintTree(SearchTree T);//P96
 
 #endif
