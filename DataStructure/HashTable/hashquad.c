@@ -1,0 +1,7 @@
+
+
+struct HashTbl
+{
+  int TableSize;
+  
+};
