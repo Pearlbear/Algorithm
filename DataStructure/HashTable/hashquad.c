@@ -80,3 +80,20 @@ void Insert( ElementType Key, HashTable H )
       (H->TheCells + P)->Element = Key;
     }
 }
+
+/*
+  再散列
+ */
+HashTable ReHash(HashTable H)
+{
+  HashTable NewTable;
+  int i;
+  NewTable = InitializeTable(H->TableSize << 1);
+  for(i = 0;i < H->TableSize;i++)
+    {
+      if((H->TheCells+i)->Info == Legitimate)
+	  Insert((H->TheCells+i)->Element, NewTable);
+    }
+  DestroyTable(H);
+  return NewTable;
+}

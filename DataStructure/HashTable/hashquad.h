@@ -11,6 +11,6 @@ void DestroyTable( HashTable H );
 Position Find( ElementType Key, HashTable H );
 void Insert( ElementType Key, HashTable H );
 ElementType Retrieve( Position P, HashTable H );
-HashTable Rehash( HashTable H );
+HashTable Rehash( HashTable H );//P124
 
 #endif 
