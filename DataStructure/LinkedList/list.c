@@ -42,7 +42,6 @@ void Delete(List L, ElementType X)
       TmpCell = P->Next;
       P->Next = TmpCell->Next;
       free(TmpCell);
-      TmpCell = NULL;//是否加上这句会好些？还是在画蛇添足？把TmpCell里面存储的地址也删除掉？还是会自动删除
     }
 }
 
