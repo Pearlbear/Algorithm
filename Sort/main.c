@@ -3,16 +3,18 @@
 #include "InsertionSort.c"
 #include "ShellSort.c"
 #include "HeapSort.c"
+#include "MergeSort.c"
 
 void InsertionSort(int A[], int N);
 void ShellSort(int A[], int N);
 void HeapSort(int A[], int N);
+void MergeSort(int A[], int N);
 
 int main()
 {
   //生成随机数列
   int length;
-  length = 1000;
+  length = 10;
   int a[length],b[length];
   int i; 
   srand((unsigned)time(NULL));
@@ -40,25 +42,37 @@ int main()
   /* printf("It took %ds ticks (%f seconds).\n", time, ((double)time)/CLOCKS_PER_SEC); */
 
   //算法二时间
-  time = clock();
+  /* time = clock(); */
   
-  ShellSort(a, length);
+  /* ShellSort(a, length); */
   /* for(i = 0; i < length; i++) */
   /*   { */
   /*     printf("%d ", a[i]); */
   /*   } */
-  printf("\n");
-  time = clock() - time;
-  printf("It took %ds ticks (%f seconds).\n", time, ((double)time)/CLOCKS_PER_SEC);
+  /* printf("\n"); */
+  /* time = clock() - time; */
+  /* printf("It took %ds ticks (%f seconds).\n", time, ((double)time)/CLOCKS_PER_SEC); */
 
   //算法三时间
   time = clock();
   
-  HeapSort(b, length);
-  /* for(i = 0; i < length; i++) */
-  /*   { */
-  /*     printf("%d ", b[i]); */
-  /*   } */
+  HeapSort(a, length);
+  for(i = 0; i < length; i++)
+    {
+      printf("%d ", a[i]);
+    }
+  printf("\n");
+  time = clock() - time;
+  printf("It took %ds ticks (%f seconds).\n", time, ((double)time)/CLOCKS_PER_SEC);
+
+  //算法四时间
+  time = clock();
+  
+  MergeSort(b, length);
+  for(i = 0; i < length; i++)
+    {
+      printf("%d ", b[i]);
+    }
   printf("\n");
   time = clock() - time;
   printf("It took %ds ticks (%f seconds).\n", time, ((double)time)/CLOCKS_PER_SEC);

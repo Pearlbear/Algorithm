@@ -1,3 +1,6 @@
+/*
+  堆排序（数据结构与算法分析P172）;
+*/
 #define LeftChild(i) (2*(i)+1)
 
 static void PercolateDown(int A[], int i, int N);
@@ -6,7 +9,7 @@ static void Swap(int *a, int *b);
 void HeapSort(int A[], int N)
 {
   int i;
-  for(i = N/2;i >= 0;i--)
+  for(i = N/2;i >= 0;i--)//其实就等于每插入一个数上滤，但是这样可以减少一半的开销
     PercolateDown(A, i, N);
   for(i = N-1; i > 0; i--)
     {
