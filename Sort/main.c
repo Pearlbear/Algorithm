@@ -4,17 +4,19 @@
 #include "ShellSort.c"
 #include "HeapSort.c"
 #include "MergeSort.c"
+#include "QuickSort.c"
 
 void InsertionSort(int A[], int N);
 void ShellSort(int A[], int N);
 void HeapSort(int A[], int N);
 void MergeSort(int A[], int N);
+void QuickSort(int A[], int N);
 
 int main()
 {
   //生成随机数列
   int length;
-  length = 10;
+  length = 100;
   int a[length],b[length];
   int i; 
   srand((unsigned)time(NULL));
@@ -66,9 +68,21 @@ int main()
   printf("It took %ds ticks (%f seconds).\n", time, ((double)time)/CLOCKS_PER_SEC);
 
   //算法四时间
+  /* time = clock(); */
+  
+  /* MergeSort(b, length); */
+  /* for(i = 0; i < length; i++) */
+  /*   { */
+  /*     printf("%d ", b[i]); */
+  /*   } */
+  /* printf("\n"); */
+  /* time = clock() - time; */
+  /* printf("It took %ds ticks (%f seconds).\n", time, ((double)time)/CLOCKS_PER_SEC); */
+
+  //算法五时间
   time = clock();
   
-  MergeSort(b, length);
+  QuickSort(b, length);
   for(i = 0; i < length; i++)
     {
       printf("%d ", b[i]);
