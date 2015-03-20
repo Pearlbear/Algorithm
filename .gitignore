@@ -3,3 +3,4 @@
 *.obj
 *.o
 Search/InsertionSort.c
+Others/InsertionSort.c

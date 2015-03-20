@@ -57,8 +57,7 @@ int Median3(int A[], int Left, int Right)
 /*
 static void Swap(int *a, int *b)
 {
-  int temp;
-  temp = *a;
+  int temp = *a;
   *a = *b;
   *b = temp;
 }
