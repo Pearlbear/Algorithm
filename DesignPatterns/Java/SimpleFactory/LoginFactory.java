@@ -1,6 +1,6 @@
 public class LoginFactory
 {
-    public static Login getLogin(String type)
+    public static Login factory(String type)
     {
 	if(type.equals("domain"))
 	    {
