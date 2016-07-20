@@ -1,0 +1,12 @@
+#lang planet neil/sicp
+(define (fib1 n)
+  (cond ((= n 0) 0)
+        ((= n 1) 1)
+        (else (+ (fib1 (- n 1))
+                 (fib1 (- n 2))))))
+(define (fib2 n)
+  (define (fib2-iter count a b)
+    (cond ((= count 0) b)
+          (else (fib2-iter (- count 1) (+ a b) a))))
+  (fib2-iter n 1 0))
+(fib2 9)
