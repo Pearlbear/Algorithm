@@ -1,0 +1,42 @@
+#lang planet neil/sicp
+(define square
+  (lambda (x) (* x x)))
+(define (expmod base exp m)
+  (cond ((= 0 exp) 1)
+        ((even? exp)
+         (remainder (square (expmod base (/ exp 2) m)) m))
+        (else
+         (remainder (* base (expmod base (- exp 1) m)) m))))
+
+(define (fermat-test n)
+  (define (try-it a)
+    (= (expmod a n n) a))
+  (try-it (+ 1 (random (- 10000000 1)))))
+
+(define (fast-prime? n times)
+  (cond ((= 0 times) #t)
+        ((fermat-test n) (fast-prime? n (- times 1)))
+        (else #f)))
+
+(define (report-prime elapsed-time)
+  (display " *** ")
+  (display  elapsed-time))
+(define (search-for-primes n)
+  (define (try n count start-time)
+    (cond ((= count 3)
+           (display "\n***over***"))
+          ((fast-prime? n 100)
+           (newline)
+           (display n)
+           (report-prime (- (runtime) start-time))
+           (try (+ 2 n) (+ 1 count) (runtime)))
+          (else (try (+ 2 n) count (runtime)))))
+  (if (= (remainder n 2) 1)
+      (try n 0 (runtime))
+      (try (+ n 1) 0 (runtime))))
+
+(search-for-primes 1000000000)
+(search-for-primes 10000000000)
+(search-for-primes 100000000000)
+(search-for-primes 1000000000000)
+(search-for-primes 10000000000000)
