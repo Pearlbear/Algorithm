@@ -1,0 +1,25 @@
+#lang planet neil/sicp
+(define cube
+  (lambda (x) (* x x x)))
+(define (even? x)
+  (= (remainder x 2) 0))
+(define (next-even x)
+  (+ x (remainder x 2)))
+(define (sum term a next b)
+  (if (> a b)
+      0
+      (+ (term a) (sum term (next a) next b))))
+(define (simpson f a b n)
+  (define fixed-n (next-even n))
+  (define h (/ (- b a) fixed-n))
+  (define (term-simpson k)
+    (define y (f (+ a (* k h))))
+    (cond ((or (= k 0) (= k fixed-n)) y)
+          ((even? k) (* 2 y))
+          (else (* 4 y))))
+  (define (next-simpson k)
+    (+ k 1))
+  (* (/ h 3.0) (sum term-simpson 0 next-simpson fixed-n)))
+
+(simpson cube 0 1 100)
+(simpson cube 0 1 1000)
