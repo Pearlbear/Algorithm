@@ -1,0 +1,16 @@
+#lang planet neil/sicp
+(define (cont-frac n d k)
+  (define (try count)
+    (if (= k count)
+        (d k)
+        (/ (n count) (+ (d count) (try (+ count 1))))))
+  (try 1))
+(define (cont-frac-iter n d k)
+  (define (iter count result)
+    (if (= 0 count)
+        result
+        (iter (- count 1) (/ (n count) (+ (d count) result)))))
+  (iter k 0))
+(cont-frac-iter (lambda (x) 1.0)
+           (lambda (x) 1.0)
+           100)

@@ -1,0 +1,11 @@
+#lang planet neil/sicp
+(define (cont-frac n d k)
+  (define (try count)
+    (if (= k count)
+        (d k)
+        (/ (n count) (+ (d count) (try (+ count 1))))))
+  (try 1))
+(define (tan-cf x k)
+  (/ x (cont-frac (lambda (x) (- (* x x)))
+                  (lambda (x) (- (* 2 x) 1))
+                  k)))
