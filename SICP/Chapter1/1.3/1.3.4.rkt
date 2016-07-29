@@ -1,0 +1,25 @@
+#lang planet neil/sicp
+(define tolerance 0.00001)
+(define square
+  (lambda (x) (* x x)))
+(define average
+  (lambda (x y) (/ (+ x y) 2)))
+(define (close-enough? x y)
+  (< (abs (- x y)) tolerance))
+(define (fixed-point f guess)
+  (let ((f-value (f guess)))
+    (display f-value)
+    (display ":")
+    (display guess)
+    (newline)
+    (if (close-enough? f-value guess)
+        guess
+        (fixed-point f f-value))))
+(define (average-damp f)
+  (lambda (x) (average (f x) x)))
+(define (sqrt x)
+  (fixed-point (average-damp (lambda (y) (/ x y)))
+               1.0))
+(define (cube-root x)
+  (fixed-point (average-damp (lambda (y) (/ x (square y))))
+               1.0))
