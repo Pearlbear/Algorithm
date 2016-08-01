@@ -1,0 +1,22 @@
+#lang planet neil/sicp
+(define (exp a n)
+  (if (= n 0)
+      1
+      (* a (exp a (- n 1)))))
+(define (root x a)
+  (define (iter result n)
+    (if (= 0 (remainder result a))
+        (iter (/ result a) (+ n 1))
+        n))
+  (iter x 0))
+(define (cons a b)
+  (* (exp 2 a) (exp 3 b)))
+(define (car z)
+  (root z 2))
+(define (cdr z)
+  (root z 3))
+
+(define test (cons 11 17))
+(display (car test))
+(newline)
+(display (cdr test))
