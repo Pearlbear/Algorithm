@@ -1,0 +1,31 @@
+#lang planet neil/sicp
+(define (make-vect x y)
+  (cons x y))
+(define (xcor-vect v)
+  (car v))
+(define (ycor-vect v)
+  (cdr v))
+
+(define (make-segment v-start v-end)
+  (cons v-start v-end))
+(define (start-segment segment)
+  (car segment))
+(define (end-segment segment)
+  (cdr segment))
+;a)
+(define border-painter
+  (segments->painter (list (make-segment (make-vect 0 0) (make-vect 0 1))
+                           (make-segment (make-vect 0 1) (make-vect 1 1))
+                           (make-segment (make-vect 1 1) (make-vect 1 0))
+                           (make-segment (make-vect 1 0) (make-vect 0 0)))))
+;b)
+(define diagonal-painter
+  (segments->painter (list (make-segment (make-vect 0 0) (make-vect 1 1))
+                           (make-segment (make-vect 0 1) (make-vect 1 0)))))
+;c)
+(define diamond-painter
+  (segments->painter (list (make-segment (make-vect 0 0.5) (make-vect 0.5 1))
+                           (make-segment (make-vect 0.5 1) (make-vect 1 0.5))
+                           (make-segment (make-vect 1 0.5) (make-vect 0.5 0))
+                           (make-segment (make-vect 0.5 0) (make-vect 0 0.5)))))
+;d)
