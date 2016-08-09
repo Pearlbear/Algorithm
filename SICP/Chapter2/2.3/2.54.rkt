@@ -1,0 +1,10 @@
+#lang planet neil/sicp
+(define (equal? list1 list2)
+  (cond ((and (pair? (car list1))
+              (pair? (car list2)))
+         (and (equal? (car list1) (car list2))
+              (equal? (cdr list1) (cdr list2))))
+        ((and (not (pair? list1))
+              (not (pair? list2)))
+         (eq? list1 list2))
+        (else #f)))
