@@ -1,0 +1,43 @@
+#lang planet neil/sicp
+;a)
+;因为如果exp是变量或数的话，它就不会有操作符，(operator exp)会出错
+;b)
+(define (install-sum-package)
+  (define (deriv-sum exp var)
+    (make-sum (deriv (addend exp) var)
+              (deriv (augend exp) var)))
+  (put 'deriv '(+) deriv-sum)
+  (put 'make-sum '+
+       (lambda (x y) (attach-tag '+ (make-sum x y))))
+  'done)
+(define (make-sum x y)
+  ((get 'make-sum '+) x y))
+(define (install-product-package)
+  (define (deriv-product exp var)
+    (make-sum (make-product (multiplier exp)
+                            (deriv (multiplicand exp) var))
+              (make-product (deriv (multiplier exp) var)
+                            (multiplicand exp))))
+  (put 'deriv '(*) deriv-product)
+  (put 'make-product '*
+       (lambda (x y) (attach-tag '* (make-product x y))))
+  'done)
+(define (make-product x y)
+  ((get 'make-product '*) x y))
+(define (deriv x)
+  (apply-generic 'deriv x))
+;c)
+(define (install-exponentiation-package)
+  (define (deriv-exponentiation exp var)
+    (make-product 
+          (make-product (exponent exp)
+                        (make-exponentiation (base exp) (make-sum (exponent exp) '-1)))
+          (deriv (base exp) var)))
+  (put 'deriv '(**) deriv-exponentiation)
+  (put 'make-exponentiation '**
+       (lambda (x y) (attach-tag '** (make-exponentiation x y))))
+  'done)
+(define (make-exponentiation x y)
+  ((get 'make-exponentiation '**) x y))
+;d)
+其实只是把type和operation换了位置而已,在put中把前两个参数换一下位置即可
