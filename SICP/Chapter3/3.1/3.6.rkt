@@ -1,0 +1,18 @@
+#lang planet neil/sicp
+(define (rand-update x) (+ x 1))
+(define (rand)
+  (let ((new-value 100))
+    (define (dispatch m)
+      (cond ((eq? m 'generate)
+             (begin (set! new-value (rand-update new-value))
+                    new-value))
+            ((eq? m 'reset)
+             (lambda (x) (set! new-value x)))
+            (else (error "No such operation"))))
+    dispatch))
+
+(define myrand (rand))
+(myrand 'generate)
+(myrand 'generate)
+((myrand 'reset) 100)
+(myrand 'generate)

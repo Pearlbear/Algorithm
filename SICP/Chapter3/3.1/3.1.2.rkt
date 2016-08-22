@@ -1,0 +1,20 @@
+#lang planet neil/sicp
+#|
+(define (rand)
+  (let ((x 1))
+    (lambda () (begin (set! x (rand-update x))
+                      x))))
+|#
+(define (cesaro-test)
+  (= (gcd (random 10000) (random 10000)) 1))
+(define (monte-carlo trials experiment)
+  (define (iter remain-times passed-times)
+    (cond ((= remain-times 0)
+           (/ passed-times trials))
+          ((experiment)
+           (iter (- remain-times 1) (+ passed-times 1)))
+          (else (iter (- remain-times 1) passed-times))))
+  (iter trials 0))
+(define (estimate-pi trials)
+  (sqrt (/ 6 (monte-carlo trials cesaro-test))))
+(estimate-pi 100000)
