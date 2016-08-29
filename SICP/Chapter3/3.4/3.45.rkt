@@ -1,0 +1,2 @@
+#lang racket
+;在执行exchange时,withdraw和deposit会被加入同一个serializer两次,可能会造成死锁

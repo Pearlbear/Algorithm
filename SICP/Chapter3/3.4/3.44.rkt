@@ -1,0 +1,2 @@
+#lang racket
+;exchange时difference是计算出来的,同时依据两个账户的状态,但是transfer中并没有同时依据两个账户的状态
