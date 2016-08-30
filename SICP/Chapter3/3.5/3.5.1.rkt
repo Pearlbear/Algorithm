@@ -1,0 +1,11 @@
+#lang planet neil/sicp
+(define (delay exp)
+  (lambda () exp))
+(define (force exp)
+  (exp))
+(define (cons-stream x y)
+  (cons x (delay y)))
+(define (car-stream stream)
+  (car stream))
+(define (cdr-stream stream)
+  (force (cdr stream)))
