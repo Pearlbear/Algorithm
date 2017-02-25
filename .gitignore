@@ -1,2 +1,8 @@
 *~
 .DS_Store
+
+# latex
+*.toc
+*.log
+*.synctex.gz
+*.aux
