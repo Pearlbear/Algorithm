@@ -1,0 +1,487 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass ctex-article
+\begin_preamble
+% 如果没有这一句命令，XeTeX会出错，原因参见
+% http://bbs.ctex.org/viewthread.php?tid=60547
+\DeclareRobustCommand\nobreakspace{\leavevmode\nobreak\ }
+\end_preamble
+\options UTF8
+\use_default_options true
+\maintain_unincluded_children false
+\language chinese-simplified
+\language_package none
+\inputencoding utf8-plain
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format pdf4
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 1
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+《微积分和数学分析引论》读书笔记
+\end_layout
+
+\begin_layout Author
+Psyche
+\end_layout
+
+\begin_layout Date
+2017年2月24日
+\end_layout
+
+\begin_layout Section
+引言
+\end_layout
+
+\begin_layout Subsection
+实数连续统
+\end_layout
+
+\begin_layout Subsubsection
+概念
+\end_layout
+
+\begin_layout Paragraph
+有理数：
+\end_layout
+
+\begin_layout Standard
+负整数、0、正整数、分数的集合。
+\end_layout
+
+\begin_layout Standard
+可以由1通过“有理运算”（即加减乘除）得到。
+\end_layout
+
+\begin_layout Standard
+总可以写成
+\begin_inset Formula $\frac{p}{q}$
+\end_inset
+
+的形式，其中p、q都是整数，且
+\begin_inset Formula $q\neq0$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Paragraph*
+稠密性：
+\end_layout
+
+\begin_layout Standard
+有理点在数轴上是稠密的，即数轴上的任意一点P能够用有理点来无限逼近。
+\end_layout
+
+\begin_layout Paragraph
+不可通约量：
+\end_layout
+
+\begin_layout Standard
+两个量如果其比是有理数，则称为可通约的，因为可将它们表示为某同一单位的整数倍。反之则称为不可通约量，不可通约量的经典例子：单位长度的正方形的对角线长度。（1-1
+p6）
+\end_layout
+
+\begin_layout Subsubsection
+习题
+\end_layout
+
+\begin_layout Paragraph
+1.1节a
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+证明：
+\begin_inset Newline newline
+\end_inset
+
+假设
+\begin_inset Formula $a+x$
+\end_inset
+
+是有理数，则根据有理数之差也是有理数得到
+\begin_inset Formula $(a+x)-a=x$
+\end_inset
+
+是有理数，与题目矛盾，所以
+\begin_inset Formula $a+x$
+\end_inset
+
+是无理数。
+\begin_inset Formula $ax$
+\end_inset
+
+同理。
+\end_layout
+
+\begin_layout Enumerate
+证明：
+\begin_inset Newline newline
+\end_inset
+
+用举例法，任意两个有理数a、b，假设
+\begin_inset Formula $a<b$
+\end_inset
+
+，则
+\begin_inset Formula $a+\frac{b-a}{\sqrt{2}}$
+\end_inset
+
+在a与b之间并且是无理数，所以任意两个有理数之间至少有一个无理数。而任意两个有理数之间有无穷多个有理数，所以有无穷多个无理数。
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+证明：
+\begin_inset Newline newline
+\end_inset
+
+假设
+\begin_inset Formula $\sqrt{3}$
+\end_inset
+
+是有理数，则
+\begin_inset Formula $\sqrt{3}=\frac{p}{q}$
+\end_inset
+
+，其中p、q都是整数，且
+\begin_inset Formula $q\neq0$
+\end_inset
+
+，p、q互质（如果有公因子的话可以约掉）。
+\begin_inset Newline newline
+\end_inset
+
+则
+\begin_inset Formula $p^{2}=3q^{2}$
+\end_inset
+
+，即
+\begin_inset Formula $p^{2}$
+\end_inset
+
+是3的倍数，这里要先证明p也是3的倍数：
+\begin_inset Newline newline
+\end_inset
+
+假设p不是3的倍数，则p可以表示成
+\begin_inset Formula $p=3k+n(k\in N,n\in\{1,2\}$
+\end_inset
+
+的形式，那么
+\begin_inset Formula $p^{2}=9k^{2}+6kn+n^{2}$
+\end_inset
+
+，这里前两项都是3的倍数，而
+\begin_inset Formula $n\in\{1,2\}$
+\end_inset
+
+，那么
+\begin_inset Formula $n^{2}\in\{1,4\}$
+\end_inset
+
+，不是3的倍数，所以
+\begin_inset Formula $p^{2}$
+\end_inset
+
+也不是3的倍数，与前面证明的
+\begin_inset Formula $p^{2}$
+\end_inset
+
+是3的倍数矛盾，所以p也是3的倍数。
+\begin_inset Newline newline
+\end_inset
+
+既然p是3的倍数，那么设
+\begin_inset Formula $p=3p_{1}$
+\end_inset
+
+，则
+\begin_inset Formula $9p_{1}^{2}=3q^{2}$
+\end_inset
+
+，即
+\begin_inset Formula $3p_{1}^{2}=q^{2}$
+\end_inset
+
+，同理可以证明q也是3的倍数，所以p、q具有公因子3，与前面的假设p、q互质矛盾。
+\begin_inset Newline newline
+\end_inset
+
+所以证明了
+\begin_inset Formula $\sqrt{3}$
+\end_inset
+
+是无理数。
+\end_layout
+
+\begin_layout Enumerate
+证明：
+\begin_inset Newline newline
+\end_inset
+
+假设
+\begin_inset Formula $\sqrt{n}=\frac{p}{q}$
+\end_inset
+
+，其中p、q都是整数，且
+\begin_inset Formula $q\neq0$
+\end_inset
+
+，p、q互质。
+\begin_inset Newline newline
+\end_inset
+
+则
+\begin_inset Formula $p^{2}=nq^{2}$
+\end_inset
+
+，即
+\begin_inset Formula $q^{2}$
+\end_inset
+
+是
+\begin_inset Formula $p^{2}$
+\end_inset
+
+的一个因子，但p与q互质，因此
+\begin_inset Formula $q^{2}$
+\end_inset
+
+与
+\begin_inset Formula $p^{2}$
+\end_inset
+
+也互质，那么
+\begin_inset Formula $q^{2}$
+\end_inset
+
+肯定等于1，则
+\begin_inset Formula $p^{2}=n$
+\end_inset
+
+，与题设中的n不是完全平方数矛盾，所以
+\begin_inset Formula $\sqrt{n}$
+\end_inset
+
+肯定是无理数。
+\end_layout
+
+\begin_layout Enumerate
+证明：
+\begin_inset Newline newline
+\end_inset
+
+假设
+\begin_inset Formula $\sqrt[3]{2}$
+\end_inset
+
+是有理数，则
+\begin_inset Formula $\sqrt[3]{2}=\frac{p}{q}$
+\end_inset
+
+，其中p、q都是整数，且
+\begin_inset Formula $q\neq0$
+\end_inset
+
+，p、q互质。
+\begin_inset Newline newline
+\end_inset
+
+则
+\begin_inset Formula $2q^{3}=p^{3}$
+\end_inset
+
+，那么
+\begin_inset Formula $p^{3}$
+\end_inset
+
+是偶数，得出p是偶数，p可以表示为
+\begin_inset Formula $p=2p_{1}$
+\end_inset
+
+，那么
+\begin_inset Formula $2q^{3}=8p_{1}^{3}$
+\end_inset
+
+，
+\begin_inset Formula $q^{3}=4p_{1}^{3}$
+\end_inset
+
+，同理可证得q也是偶数，那么p、q有相同的因子2，与假设p、q互质矛盾，所以
+\begin_inset Formula $\sqrt[3]{2}$
+\end_inset
+
+是无理数。
+\end_layout
+
+\begin_layout Enumerate
+证明统(b)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+证明：
+\begin_inset Newline newline
+\end_inset
+
+将有理根
+\begin_inset Formula $\frac{p}{q}$
+\end_inset
+
+（p与q互质）代入方程得：
+\begin_inset Formula 
+\[
+a_{n}\frac{p^{n}}{q^{n}}+a_{n-1}\frac{p^{n-1}}{q^{n-1}}+\cdots+a_{1}\frac{p}{q}+a_{0}=0
+\]
+
+\end_inset
+
+得：
+\begin_inset Formula 
+\[
+p\times(a_{n}p^{n-1}+a_{n-1}p^{n-2}q+\cdots+a_{1}q^{n-1})=-a_{0}q^{n}
+\]
+
+\end_inset
+
+因为p与q互质，所以p不是
+\begin_inset Formula $q^{n}$
+\end_inset
+
+的因子，所以p肯定是
+\begin_inset Formula $a_{0}$
+\end_inset
+
+的因子。
+\begin_inset Newline newline
+\end_inset
+
+同样可得：
+\begin_inset Formula 
+\[
+-a_{n}p^{n}=q\times(a_{n-1}p^{n-1}+\dots+a_{1}q^{n-2}p+q^{n-1})
+\]
+
+\end_inset
+
+同样q也不是
+\begin_inset Formula $p^{n}$
+\end_inset
+
+的因子，所以q肯定是
+\begin_inset Formula $a_{n}$
+\end_inset
+
+的因子。
+\end_layout
+
+\begin_layout Enumerate
+暂不知如何构造多项式。
+\end_layout
+
+\end_deeper
+\end_body
+\end_document
