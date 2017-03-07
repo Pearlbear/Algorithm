@@ -87,6 +87,12 @@ Psyche
 
 \begin_layout Date
 2017年2月24日
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -140,6 +146,42 @@ Psyche
 \begin_layout Standard
 两个量如果其比是有理数，则称为可通约的，因为可将它们表示为某同一单位的整数倍。反之则称为不可通约量，不可通约量的经典例子：单位长度的正方形的对角线长度。（1-1
 p6）
+\end_layout
+
+\begin_layout Paragraph
+区间套序列：
+\end_layout
+
+\begin_layout Standard
+一个闭区间
+\begin_inset Formula $I_{1}$
+\end_inset
+
+、
+\begin_inset Formula $I_{2}$
+\end_inset
+
+、
+\begin_inset Formula $I_{3}$
+\end_inset
+
+的集合，其中每一个都包含着下一个并且其长度趋向于零。
+\end_layout
+
+\begin_layout Standard
+性质：端点都是有理数；每一个区间套序列都唯一指定一个点
+\begin_inset Formula $x$
+\end_inset
+
+，不可能有其它点在同一个区间套序列中。
+\end_layout
+
+\begin_layout Standard
+区间套序列可以用来定义实数的无限小数表示。
+\end_layout
+
+\begin_layout Paragraph
+我
 \end_layout
 
 \begin_layout Subsubsection
@@ -483,5 +525,57 @@ p\times(a_{n}p^{n-1}+a_{n-1}p^{n-2}q+\cdots+a_{1}q^{n-1})=-a_{0}q^{n}
 \end_layout
 
 \end_deeper
+\begin_layout Paragraph
+1.1节b
+\end_layout
+
+\begin_layout Enumerate
+智商欠费，答案看着都很懵逼。
+\end_layout
+
+\begin_layout Enumerate
+试给出定义：
+\begin_inset Newline newline
+\end_inset
+
+设
+\begin_inset Formula $a=a_{0}a_{1}a_{2}\dots a_{n}$
+\end_inset
+
+，
+\begin_inset Formula $b=b_{0}b_{1}b_{2}\dots b_{n}$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $a<b$
+\end_inset
+
+当且仅当
+\begin_inset Formula $n$
+\end_inset
+
+从0开始取正整数，存在
+\begin_inset Formula $n$
+\end_inset
+
+，首次使得
+\begin_inset Formula $a_{n}<b_{n}$
+\end_inset
+
+，则
+\begin_inset Formula $a<b$
+\end_inset
+
+。
+\end_layout
+
+\begin_layout Enumerate
+又是一道答案都看不懂的题。
+\end_layout
+
 \end_body
 \end_document
