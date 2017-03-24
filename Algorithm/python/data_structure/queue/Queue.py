@@ -14,7 +14,9 @@ class TestQueue(TestCase):
     def test_dequeue(self):
         self.assertRaises(NoMoreItemException, self.queue.dequeue)
         self.queue.enqueue('McGrady')
+        self.queue.enqueue('Kobe')
         self.assertIs('McGrady', self.queue.dequeue())
+        self.assertIs('Kobe', self.queue.dequeue())
         self.assertEqual(self.queue.size(), 0)
 
     def test_is_empty(self):
@@ -30,6 +32,8 @@ class TestQueue(TestCase):
         self.assertEqual(self.queue.size(), 1)
         self.queue.enqueue('Kobe')
         self.assertEqual(self.queue.size(), 2)
+        self.queue.dequeue()
+        self.assertEqual(self.queue.size(), 1)
 
 
 class Queue(object):
@@ -64,7 +68,7 @@ class Queue(object):
             return node.value
 
     def is_empty(self):
-        return False if self.head else True
+        return not self.head
 
     def size(self):
         return self.__size

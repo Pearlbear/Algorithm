@@ -38,7 +38,7 @@ class TestStack(TestCase):
         self.assertEqual(self.stack.size(), 2)
 
 
-class Stack:
+class Stack(object):
     def __init__(self):
         self.items = []
 
@@ -56,7 +56,7 @@ class Stack:
         raise NoMoreItemException()
 
     def is_empty(self):
-        return False if self.items else True
+        return not self.items
 
     def size(self):
         return len(self.items)
