@@ -8,6 +8,7 @@ class TestInfixToPostfix(TestCase):
         self.assertEqual(infix_to_postfix('A * B + C * D'), 'A B * C D * +')
         self.assertEqual(infix_to_postfix('A * ( B + C )'), 'A B C + *')
         self.assertEqual(infix_to_postfix('( A + B ) * C - ( D - E ) * ( F + G )'), 'A B + C * D E - F G + * -')
+        self.assertEqual(infix_to_postfix('5 * 3 ** ( 4 - 2 )'), '5 3 4 2 - ** *')
 
 
 def infix_to_postfix(infix):
@@ -26,7 +27,8 @@ def infix_to_postfix(infix):
         '+': 1,
         '-': 1,
         '*': 2,
-        '/': 2
+        '/': 2,
+        '**': 3
     }
     ops = Stack()
     result = []
@@ -41,7 +43,7 @@ def infix_to_postfix(infix):
                     break
                 else:
                     result.append(last)
-        elif c in '+-*/':
+        elif c in '+-*/' or c == '**':
             while not ops.is_empty():
                 last = ops.peek()
                 if level[c] > level[last]:
