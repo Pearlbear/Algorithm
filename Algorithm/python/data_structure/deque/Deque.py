@@ -5,7 +5,8 @@ class TestDeque(TestCase):
     def setUp(self):
         self.deque = Deque()
 
-    def test_add_front(self):
+    def test_front(self):
+        self.assertRaises(NoMoreItemException, self.deque.remove_rear)
         self.deque.add_front('McGrady')
         self.deque.add_front('Kobe')
         self.deque.add_front('Wade')
@@ -13,7 +14,8 @@ class TestDeque(TestCase):
         self.assertEqual(self.deque.remove_front(), 'Wade')
         self.assertEqual(self.deque.remove_rear(), 'McGrady')
 
-    def test_add_rear(self):
+    def test_rear(self):
+        self.assertRaises(NoMoreItemException, self.deque.remove_rear)
         self.deque.add_rear('McGrady')
         self.deque.add_rear('Kobe')
         self.deque.add_rear('Wade')
