@@ -38,37 +38,36 @@ class TestQueue(TestCase):
 
 class Queue(object):
     def __init__(self):
-        self.head = None
-        self.rear = None
+        self.__head = None
+        self.__rear = None
         self.__size = 0
 
     def enqueue(self, item):
-        if self.rear:
-            node = self.Node(item)
-            self.rear.next = node
-            self.rear = node
-        else:
-            node = self.Node(item)
-            self.head = node
-            self.rear = node
+        node = self.Node(item)
         self.__size += 1
+        if self.__rear:
+            self.__rear.next = node
+            self.__rear = node
+        else:
+            self.__head = node
+            self.__rear = node
 
     def dequeue(self):
-        if not self.head:
+        if not self.__head:
             raise NoMoreItemException()
         self.__size -= 1
-        if self.head is self.rear:
-            item = self.head.value
-            self.head = None
-            self.rear = None
-            return item
+        if self.__head is self.__rear:
+            value = self.__head.value
+            self.__head = None
+            self.__rear = None
+            return value
         else:
-            node = self.head
-            self.head = node.next
+            node = self.__head
+            self.__head = node.next
             return node.value
 
     def is_empty(self):
-        return not self.head
+        return not self.__head
 
     def size(self):
         return self.__size
