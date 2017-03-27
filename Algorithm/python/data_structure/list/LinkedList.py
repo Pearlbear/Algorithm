@@ -60,15 +60,15 @@ class TestNode(TestCase):
 
 class LinkedList(object):
     def __init__(self):
-        self.head = None
+        self.__head = None
 
     def add(self, item):
         new_head = Node(item)
-        new_head.next = self.head
-        self.head = new_head
+        new_head.next = self.__head
+        self.__head = new_head
 
     def remove(self, item):
-        current = self.head
+        current = self.__head
         previous = None
         while current:
             if current.value == item:
@@ -76,12 +76,12 @@ class LinkedList(object):
             previous = current
             current = current.next
         if not previous:
-            self.head = current.next
+            self.__head = current.next
         else:
             previous.next = current.next
 
     def search(self, item):
-        current = self.head
+        current = self.__head
         while current:
             if current.value == item:
                 return True
@@ -89,11 +89,11 @@ class LinkedList(object):
         return False
 
     def is_empty(self):
-        return not self.head
+        return not self.__head
 
     def size(self):
         count = 0
-        current = self.head
+        current = self.__head
         while current:
             current = current.next
             count += 1
@@ -101,19 +101,19 @@ class LinkedList(object):
 
     def append(self, item):
         new_node = Node(item)
-        current = self.head
+        current = self.__head
         previous = None
         while current:
             previous = current
             current = current.next
         if not previous:
-            self.head = new_node
+            self.__head = new_node
         else:
             previous.next = new_node
 
     def index(self, item):
         count = 0
-        current = self.head
+        current = self.__head
         while current:
             if current.value == item:
                 return count
