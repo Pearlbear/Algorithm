@@ -9,7 +9,7 @@ class TestSort(TestCase):
     def test_bubble_sort(self):
         sorted_list = bubble_sort(self.list)
         for i in range(0, len(sorted_list) - 1):
-            self.assertTrue(sorted_list[i] <= sorted_list[i + 1])
+            self.assertTrue(sorted_list[i] < sorted_list[i + 1])
 
 
 def bubble_sort(numbers):

@@ -9,7 +9,7 @@ class TestSort(TestCase):
     def test_selection_sort(self):
         sorted_list = selection_sort(self.list)
         for i in range(0, len(sorted_list) - 1):
-            self.assertTrue(sorted_list[i] <= sorted_list[i + 1])
+            self.assertTrue(sorted_list[i] < sorted_list[i + 1])
 
 
 def selection_sort(numbers):
