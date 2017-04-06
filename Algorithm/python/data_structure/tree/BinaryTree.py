@@ -9,11 +9,11 @@ class TestBinaryTree(TestCase):
         self.assertEqual(self.tree.key, 'a')
 
     def test_left(self):
-        self.tree.left = 'b'
+        self.tree.left = BinaryTree('b')
         self.assertEqual(self.tree.left.key, 'b')
 
     def test_right(self):
-        self.tree.right = 'c'
+        self.tree.right = BinaryTree('c')
         self.assertEqual(self.tree.right.key, 'c')
 
 
@@ -37,12 +37,7 @@ class BinaryTree(object):
 
     @left.setter
     def left(self, left):
-        if self.__left:
-            new_left = BinaryTree(left)
-            new_left.left = self.__left
-            self.__left = new_left
-        else:
-            self.__left = BinaryTree(left)
+        self.__left = left
 
     @property
     def right(self):
@@ -50,9 +45,4 @@ class BinaryTree(object):
 
     @right.setter
     def right(self, right):
-        if self.__right:
-            new_right = BinaryTree(right)
-            new_right.right = self.__right
-            self.__right = new_right
-        else:
-            self.__right = BinaryTree(right)
+        self.__right = right
