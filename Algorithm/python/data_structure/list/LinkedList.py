@@ -1,4 +1,5 @@
 from unittest import TestCase
+from data_structure.stack.Stack import Stack
 
 
 class TestLinkedList(TestCase):
@@ -44,6 +45,14 @@ class TestLinkedList(TestCase):
         self.assertEqual(self.list.index('Kobe'), 0)
         self.assertEqual(self.list.index('McGrady'), 1)
         self.assertEqual(self.list.index('Wade'), -1)
+
+    def test_reverse_print(self):
+        self.list.append('McGrady')
+        self.list.append('Kobe')
+        self.list.append('Wade')
+        self.list.append('Carter')
+        self.list.append('Iverson')
+        self.list.reverse_print()
 
 
 class TestNode(TestCase):
@@ -120,6 +129,15 @@ class LinkedList(object):
             count += 1
             current = current.next
         return -1
+
+    def reverse_print(self):
+        stack = Stack()
+        current = self.__head
+        while current:
+            stack.push(current.value)
+            current = current.next
+        while not stack.is_empty():
+            print(stack.pop())
 
 
 class Node(object):
