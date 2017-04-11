@@ -18,10 +18,10 @@ class TestBinaryTree(TestCase):
 
 
 class BinaryTree(object):
-    def __init__(self, key):
+    def __init__(self, key, left=None, right=None):
         self.__key = key
-        self.__left = None
-        self.__right = None
+        self.__left = left
+        self.__right = right
 
     @property
     def key(self):
