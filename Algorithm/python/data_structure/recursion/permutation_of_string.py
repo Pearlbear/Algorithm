@@ -3,18 +3,18 @@ from unittest import TestCase
 
 class TestPermuteString(TestCase):
     def test_permute_string(self):
-        ab_permutations = permute_string('ab')
+        ab_permutations = permutation_of_string('ab')
         self.assertEqual(len(ab_permutations), 2)
         self.assertEqual({'ab', 'ba'}, set(ab_permutations))
-        abc_permutations = permute_string('abc')
+        abc_permutations = permutation_of_string('abc')
         self.assertEqual(len(abc_permutations), 6)
         self.assertEqual({'abc', 'acb', 'bac', 'bca', 'cab', 'cba'}, set(abc_permutations))
-        aac_permutations = permute_string('aac')
+        aac_permutations = permutation_of_string('aac')
         self.assertEqual(len(aac_permutations), 3)
         self.assertEqual({'aac', 'aca', 'caa'}, set(aac_permutations))
 
 
-def permute_string(string):
+def permutation_of_string(string):
     def swap(replace_string, index1, index2):
         if index1 == index2:
             return replace_string
@@ -40,5 +40,5 @@ def permute_string(string):
         if is_swap(string, 0, i):
             replaced = swap(string, 0, i)
             first, rest = replaced[0], replaced[1:]
-            result += list(map(lambda item: first + item, permute_string(rest)))
+            result += list(map(lambda item: first + item, permutation_of_string(rest)))
     return result
