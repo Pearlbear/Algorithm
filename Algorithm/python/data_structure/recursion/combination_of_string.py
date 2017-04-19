@@ -1,5 +1,10 @@
 from unittest import TestCase
 
+"""
+求字符串的全组合。
+用0、1来代表字符的出现和不出现，因此有 n = 2**len(string) 种组合（包括空字符串），如：abc，100代表a出现，b和c都不出现
+"""
+
 
 class TestPermuteString(TestCase):
     def test_permute_string(self):
@@ -18,6 +23,6 @@ def combination_of_string(string):
         combination = []
         for j in range(0, len(string)):
             if i & (2 ** j) != 0:
-                combination.append(string[-j-1])
+                combination.append(string[-j - 1])
         result.append(''.join(combination))
     return result
