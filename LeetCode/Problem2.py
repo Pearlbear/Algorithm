@@ -2,7 +2,7 @@ from unittest import TestCase
 from LinkedList import Node
 
 
-class TestTwoSum(TestCase):
+class TestAddTwoNumbers(TestCase):
     def test_normal(self):
         result = add_two_numbers(Node(2, Node(4, Node(3))), Node(5, Node(6, Node(4))))
         self.assertEqual(result.value, 7)

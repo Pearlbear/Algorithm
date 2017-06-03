@@ -1,21 +1,21 @@
 from unittest import TestCase
 
 
-class TestTwoSum(TestCase):
+class TestLongestSubstringWithoutRepeatingCharacters(TestCase):
     def test_normal(self):
-        self.assertEqual(get_length_of_longest_substring('abcabcbb'), 3)
-        self.assertEqual(get_length_of_longest_substring('pwwkew'), 3)
-        self.assertEqual(get_length_of_longest_substring('abba'), 2)
+        self.assertEqual(longest_substring_without_repeating_characters('abcabcbb'), 3)
+        self.assertEqual(longest_substring_without_repeating_characters('pwwkew'), 3)
+        self.assertEqual(longest_substring_without_repeating_characters('abba'), 2)
 
     def test_one_char_string(self):
-        self.assertEqual(get_length_of_longest_substring('bbbbbb'), 1)
+        self.assertEqual(longest_substring_without_repeating_characters('bbbbbb'), 1)
 
     def test_empty_string(self):
-        self.assertEqual(get_length_of_longest_substring(''), 0)
-        self.assertEqual(get_length_of_longest_substring(None), 0)
+        self.assertEqual(longest_substring_without_repeating_characters(''), 0)
+        self.assertEqual(longest_substring_without_repeating_characters(None), 0)
 
 
-def get_length_of_longest_substring(string):
+def longest_substring_without_repeating_characters(string):
     if not string:
         return 0
     longest_length = 0
@@ -30,7 +30,7 @@ def get_length_of_longest_substring(string):
     return longest_length
 
 
-def get_length_of_longest_substring_optimized(string):
+def longest_substring_without_repeating_characters_optimized(string):
     if not string:
         return 0
     start = longest_length = 0
